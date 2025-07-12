@@ -207,17 +207,6 @@ class Clash:
             if self._poke1.get_hp() <= 0:
                 return f"The Pokemon {self._poke2.get_name()} has won!"
 
-energyball = Move("Energy ball", Type.electric, 10)
-water_gun = Move("water gun", Type.water, 10)
-date = {
-    "Name": ["Pikachu", "Squirtle"],
-    "Type": [Type.electric, Type.water],
-    "Type2": [None, None],
-    "Atk": [10, 5],
-    "Def": [10, 15],
-    "Hp": [200, 200],
-    "Atk_list": [[energyball], [water_gun]]
-}
 
 class Print(QMainWindow):
     def __init__(self):
