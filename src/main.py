@@ -228,6 +228,17 @@ class Print(QMainWindow):
         self.ui.press.pressed.connect(self.press_fight)
     
     def press_fight(self):
+        energyball = Move("Energy ball", Type.electric, 10)
+        water_gun = Move("water gun", Type.water, 10)
+        date = {
+            "Name": ["Pikachu", "Squirtle"],
+            "Type": [Type.electric, Type.water],
+            "Type2": [None, None],
+            "Atk": [10, 5],
+            "Def": [10, 15],
+            "Hp": [200, 200],
+            "Atk_list": [[energyball], [water_gun]]
+        }
         df = pd.DataFrame(date)
         pika = Pokemon(df["Name"][0], df["Type"][0], df["Type2"][0], df["Atk"][0], df["Def"][0], df["Hp"][0], df["Atk_list"][0])
         squirtle = Pokemon(df["Name"][1], df["Type"][1], df["Type2"][1], df["Atk"][1], df["Def"][1], df["Hp"][1], df["Atk_list"][1])
