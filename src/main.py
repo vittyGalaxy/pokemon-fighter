@@ -4,8 +4,10 @@ import pandas as pd
 import random
 from enum import Enum
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
 from gui import Ui_MainWindow
+from PySide6.uic import loadUi
+
 
 class Type(Enum):
     fire = 0
@@ -233,6 +235,19 @@ class Print(QMainWindow):
         squirtle = Pokemon(df["Name"][1], df["Type"][1], df["Type2"][1], df["Atk"][1], df["Def"][1], df["Hp"][1], df["Atk_list"][1])
         c = Clash(pika, squirtle)
         print(c.fight())
+
+
+class PieChartCanvas(FigureCanvas):
+    def __init__(self, parent=None)
+        fig = Figure(figsize=(5, 4))
+        self.axes = fig.add_subplot(111)
+        super().__init__(fig)
+        self.setParent(parent)
+    
+    def plot_pie(self, labels, sizes):
+        self.axes.clear()
+        self.axes.pie(size, labels, autopct="%1.1%%", startangle=140)
+        self.draw()
 
 def main():
     app = QApplication(sys.argv)
